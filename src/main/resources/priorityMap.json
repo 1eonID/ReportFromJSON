@@ -1,0 +1,485 @@
+[
+{ "checker" : "ARRAY_VS_SINGLETON",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "BAD_ALLOC_ARITHMETIC",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "BAD_ALLOC_STRLEN",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "BAD_FREE",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "BUFFER_SIZE",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "BUFFER_SIZE",
+  "issueCategory" : "Memory - illegal addresses",
+  "priority" : "High"
+},
+{ "checker" : "BUFFER_SIZE_WARNING",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "COM.ADDROF_LEAK",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "COM.BAD_FREE",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "COM.BSTR.ALLOC",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "COM.BSTR.ALLOC",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "COM.BSTR.CONV",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "CTOR_DTOR_LEAK",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "DELETE_ARRAY",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "DELETE_ARRAY",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "DELETE_VOID",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "INCOMPATIBLE_CAST",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "INCOMPATIBLE_CAST",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "INCOMPATIBLE_CAST",
+  "issueCategory" : "Uninitialized variables",
+  "priority" : "High"
+},
+{ "checker" : "NEGATIVE_RETURNS",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "NEGATIVE_RETURNS",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "NEGATIVE_RETURNS",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "OVERRUN",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "OVERRUN",
+  "issueCategory" : "Memory - illegal address",
+  "priority" : "High"
+},
+{ "checker" : "OVERRUN_DYNAMIC",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "OVERRUN_DYNAMIC",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "OVERRUN_STATIC",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "OVERRUN_STATIC",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "PW.RETURN_PTR_TO_LOCAL_TEMP",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "READLINK",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "RESOURCE_LEAK",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "RETURN_LOCAL",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "REVERSE_NEGATIVE",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "REVERSE_NEGATIVE",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "SIZECHECK",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "SIZECHECK",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "STRING_NULL",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "STRING_NULL",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "STRING_SIZE",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "SYMBIAN.CLEANUP_STACK",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "SYMBIAN.CLEANUP_STACK",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "UNINIT",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "UNINIT",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "UNINIT",
+  "issueCategory" : "Uninitialized variables",
+  "priority" : "High"
+},
+{ "checker" : "USE_AFTER_FREE",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "USE_AFTER_FREE",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "USE_AFTER_FREE",
+  "issueCategory" : "API usage errors",
+  "priority" : "High"
+},
+{ "checker" : "USE_AFTER_FREE",
+  "issueCategory" : "Resource leaks",
+  "priority" : "High"
+},
+{ "checker" : "WRAPPER_ESCAPE",
+  "issueCategory" : "Memory - corruptions",
+  "priority" : "High"
+},
+{ "checker" : "WRAPPER_ESCAPE",
+  "issueCategory" : "Memory - illegal accesses",
+  "priority" : "High"
+},
+{ "checker" : "ALLOC_FREE_MISMATCH",
+  "issueCategory" : "API usage error",
+  "priority" : "Medium"
+},
+{ "checker" : "ASSERT_SIDE_EFFECT",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "ATOMICITY",
+  "issueCategory" : "Concurrent data access violations",
+  "priority" : "Medium"
+},
+{ "checker" : "BAD_COMPARE",
+  "issueCategory" : "API Usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "BAD_COMPARE",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "BAD_OVERRIDE",
+  "issueCategory" : "Class hierarchy inconsistencies",
+  "priority" : "Medium"
+},
+{ "checker" : "BAD_SIZEOF",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "CHAR_IO",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "CHECKED_RETURN",
+  "issueCategory" : "Error handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "CHROOT",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "COM.BSTR.BAD_COMPARE",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "COPY_PASTE_ERROR",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "COM.BSTR.NE_NON_BSTR",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "CONSTANT_EXPRESSION_RESULT",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "CONSTANT_EXPRESSION_RESULT",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "DEADCODE",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "DIVIDE_BY_ZERO",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "ENUM_AS_BOOLEAN",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "EVALUATION_ORDER",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "FORWARD_NULL",
+  "issueCategory" : "Null pointer dereferences",
+  "priority" : "Medium"
+},
+{ "checker" : "FORWARD_NULL",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "INFINITE_LOOP",
+  "issueCategory" : "Program hangs",
+  "priority" : "Medium"
+},
+{ "checker" : "INTEGER_OVERFLOW",
+  "issueCategory" : "Insecure data handling",
+  "priority" : "Medium"
+},
+{ "checker" : "INTEGER_OVERFLOW",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "INVALIDATE_ITERATOR",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "LOCK",
+  "issueCategory" : "Program hangs",
+  "priority" : "Medium"
+},
+{ "checker" : "MISMATCHED_ITERATOR",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "MISRA_CAST",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "MISSING_BREAK",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "MISSING_LOCK",
+  "issueCategory" : "Concurrent data access violations",
+  "priority" : "Medium"
+},
+{ "checker" : "MISSING_RESTORE",
+  "issueCategory" : "Likely",
+  "priority" : "Medium"
+},
+{ "checker" : "MIXED_ENUMS",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "MIXED_ENUMS",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "MIXED_ENUMS",
+  "issueCategory" : "Error handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "MIXED_ENUMS",
+  "issueCategory" : "Program hangs",
+  "priority" : "Medium"
+},
+{ "checker" : "NESTING_INDENT_MISMATCH",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "NO_EFFECT",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "NO_EFFECT",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "NO_EFFECT",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "NULL_RETURNS",
+  "issueCategory" : "Null pointer dereferences",
+  "priority" : "Medium"
+},
+{ "checker" : "OPEN_ARGS",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "ORDER_REVERSAL",
+  "issueCategory" : "Program hangs",
+  "priority" : "Medium"
+},
+{ "checker" : "OVERFLOW_BEFORE_WIDEN",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.ASSIGN_WHERE_COMPARE_MEANT",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.BAD_CAST",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.BAD_PRINTF_FORMAT_STRING",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.BRANCH_PAST_INITIALIZATION",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.CONVERSION_TO_POINTER_LOSES_BITS",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.DIVIDE_BY_ZERO",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.EXPR_HAS_NO_EFFECT",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.INTEGER_OVERFLOW",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.INTEGER_TOO_LARGE",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.PRINTF_ARG_MISMATCH",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.SHIFT_COUNT_TOO_LARGE",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.TOO_FEW_PRINTF_ARGS",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.TOO_MANY_PRINTF_ARGS",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "PW.UNSIGNED_COMPARE_WITH_NEGATIVE",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "REVERSE_INULL",
+  "issueCategory" : "Null pointer dereferences",
+  "priority" : "Medium"
+},
+{ "checker" : "REVERSE_INULL",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "SIGN_EXTENSION",
+  "issueCategory" : "Integer handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "SIZEOF_MISMATCH",
+  "issueCategory" : "Incorrect expression",
+  "priority" : "Medium"
+},
+{ "checker" : "SLEEP",
+  "issueCategory" : "Program hangs",
+  "priority" : "Medium"
+},
+{ "checker" : "STREAM_FORMAT_STATE",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "STRAY_SEMICOLON",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "SWAPPED_ARGUMENTS",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+},
+{ "checker" : "TAINTED_SCALAR",
+  "issueCategory" : "Insecure data handling",
+  "priority" : "Medium"
+},
+{ "checker" : "TAINTED_STRING",
+  "issueCategory" : "Insecure data handling",
+  "priority" : "Medium"
+},
+{ "checker" : "UNCAUGHT_EXCEPT",
+  "issueCategory" : "Error handling issues",
+  "priority" : "Medium"
+},
+{ "checker" : "UNINIT_CTOR",
+  "issueCategory" : "Uninitialized members",
+  "priority" : "Medium"
+},
+{ "checker" : "UNREACHABLE",
+  "issueCategory" : "Control flow issues",
+  "priority" : "Medium"
+},
+{ "checker" : "VARARGS",
+  "issueCategory" : "API usage errors",
+  "priority" : "Medium"
+} ]

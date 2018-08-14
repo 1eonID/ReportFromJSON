@@ -1,4 +1,4 @@
-package com.luxoft.panasonic.reportFromJSON.plugin.inputParse;
+package com.luxoft.panasonic.reportFromJSON.plugin.input;
 
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.UnsortedIssue;
 import org.codehaus.jackson.JsonFactory;
@@ -46,6 +46,8 @@ public class Parser {
                     if (issuesFieldName.equals("mergeKey")) {
                         JsonNode node = jp.readValueAsTree();
                         mergeKey = node.get("mergeKey").getTextValue();
+                    }
+                    if (issuesFieldName.equals("events")){
                         if (current == JsonToken.START_ARRAY) {
                             while (jp.nextToken() != JsonToken.END_ARRAY) {
                                 // read the record into a tree model,
@@ -58,11 +60,9 @@ public class Parser {
                         }
                     }
                 } else {
-                    System.out.println("Error: records should be an array: skipping.");
                     jp.skipChildren();
                 }
             } else {
-                System.out.println("Unprocessed property: " + fieldName);
                 jp.skipChildren();
             }
         }

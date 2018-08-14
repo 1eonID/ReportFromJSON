@@ -1,0 +1,339 @@
+[ {"componentName" : "SDK",
+  "pathPattern" : ".*/sdk/.*"
+}, {
+  "componentName" : "Cypress",
+  "pathPattern" : ".*/usr_pkgs/cypress/wifi_stack/.*"
+}, {
+  "componentName" : "AISJ",
+  "pathPattern" : ".*/usr_pkgs/aisj/mirrorlink/.*"
+}, {
+  "componentName" : "Cybercom",
+  "pathPattern" : ".*/usr_pkgs/cybercom/bluego/.*"
+}, {
+  "componentName" : "Tuner",
+  "pathPattern" : ".*/usr_pkgs/gra/gramstr/.*"
+}, {
+  "componentName" : "iAV_CarSSW",
+  "pathPattern" : ".*/usr_pkgs/iav/carinterface/.*"
+}, {
+  "componentName" : "iAV_CarSSW",
+  "pathPattern" : ".*/usr_pkgs/iav/.*"
+}, {
+  "componentName" : "Ittiam",
+  "pathPattern" : ".*/usr_pkgs/ittiam/.*"
+}, {
+  "componentName" : "AppConnect",
+  "pathPattern" : ".*/usr_pkgs/luxoft/appconnect/.*"
+}, {
+  "componentName" : "Audio FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/audio_control/.*"
+}, {
+  "componentName" : "Bluetooth",
+  "pathPattern" : ".*/usr_pkgs/luxoft/bluetooth/.*"
+}, {
+  "componentName" : "Phone Call Manager",
+  "pathPattern" : ".*/usr_pkgs/luxoft/call_manager/.*"
+}, {
+  "componentName" : "AppConnect",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_appconnect/.*"
+}, {
+  "componentName" : "Audio FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_audio_control/.*"
+}, {
+  "componentName" : "Bluetooth",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_bt/.*"
+}, {
+  "componentName" : "Vehicle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_car_service/.*"
+}, {
+  "componentName" : "Diagnosis",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_diag/.*"
+}, {
+  "componentName" : "ISC_Pipe",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_iscpipe/.*"
+}, {
+  "componentName" : "LifeCycle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_lifecycle/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_media/.*"
+}, {
+  "componentName" : "Online",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_mod_viwi_tracing/.*"
+}, {
+  "componentName" : "PTLG",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_pathology/.*"
+}, {
+  "componentName" : "Persistency",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_persistence/.*"
+}, {
+  "componentName" : "SWDL",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_swup/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_tracereplay/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_tracing/.*"
+}, {
+  "componentName" : "Vehicle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_vehicle/.*"
+}, {
+  "componentName" : "WavePlayer",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_wave_player/.*"
+}, {
+  "componentName" : "Networking_Firewall",
+  "pathPattern" : ".*/usr_pkgs/luxoft/common/api_wnpp/.*"
+}, {
+  "componentName" : "Device Manager",
+  "pathPattern" : ".*/usr_pkgs/luxoft/devmng/.*"
+}, {
+  "componentName" : "Diagnosis",
+  "pathPattern" : ".*/usr_pkgs/luxoft/diag/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/dlt/dlt-daemon/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/dlt/dlt-proxy/.*"
+}, {
+  "componentName" : "Online",
+  "pathPattern" : ".*/usr_pkgs/luxoft/ems/.*"
+}, {
+  "componentName" : "AVB Ethernet",
+  "pathPattern" : ".*/usr_pkgs/luxoft/ethernet/.*"
+}, {
+  "componentName" : "Audio FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/audio/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/.*/.*FIL/.*"
+}, {
+  "componentName" : "Audio FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/audio/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/compositor/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/ent_source_ctrl/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/ent_src_ctrl/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/logging/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/media/.*"
+}, {
+  "componentName" : "Persistency",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/persistence/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/settings/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/speller/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/shared_memory/.*"
+}, {
+  "componentName" : "AppConnect",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/appconnect/.*"
+}, {
+  "componentName" : "Audio FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/audio/.*"
+}, {
+  "componentName" : "Bluetooth",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/bluetooth/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/devmgr/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/hmihelpers/.*"
+}, {
+  "componentName" : "Personalization",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/iaa_pso_MQB37w/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/media/.*"
+}, {
+  "componentName" : "LifeCycle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/onoff/.*"
+}, {
+  "componentName" : "Phone Connection manager",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/phconnmng/.*"
+}, {
+  "componentName" : "LifeCycle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/services/.*Lifecycle.*"
+}, {
+  "componentName" : "LifeCycle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/services/.*LifeCycle.*"
+}, {
+  "componentName" : "PTLG",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/services/.*Pathology.*"
+}, {
+  "componentName" : "Online",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/services/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/settings/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/speller/.*"
+}, {
+  "componentName" : "SWDL",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/swup/.*"
+}, {
+  "componentName" : "Tuner FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/tuner/.*"
+}, {
+  "componentName" : "Vehicle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/vehicle/.*"
+}, {
+  "componentName" : "Vehicle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/vehicle_MQB37w/.*"
+}, {
+  "componentName" : "Tuner FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/wave_player/.*"
+}, {
+  "componentName" : "WiFi",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/wlan/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/function_units/api/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/hmi_input/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/hmi_populus/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/hmi_test_system/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/include_share/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/logging/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/mouse/.*"
+}, {
+  "componentName" : "Persistency",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/persistence/.*"
+}, {
+  "componentName" : "RVC",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi/rvc/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/hmi_bin/.*"
+}, {
+  "componentName" : "ICC",
+  "pathPattern" : ".*/usr_pkgs/luxoft/icc/.*"
+}, {
+  "componentName" : "ISC_Pipe",
+  "pathPattern" : ".*/usr_pkgs/luxoft/iscbroker/.*"
+}, {
+  "componentName" : "ISC_Pipe",
+  "pathPattern" : ".*/usr_pkgs/luxoft/iscpipe/.*"
+}, {
+  "componentName" : "LifeCycle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/lifecycle/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/media_ext/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/media_fw/.*"
+}, {
+  "componentName" : "Media Handling",
+  "pathPattern" : ".*/usr_pkgs/luxoft/media_icl_svc/.*"
+}, {
+  "componentName" : "PTLG",
+  "pathPattern" : ".*/usr_pkgs/luxoft/pathology/.*"
+}, {
+  "componentName" : "Persistency",
+  "pathPattern" : ".*/usr_pkgs/luxoft/persistence/.*"
+}, {
+  "componentName" : "HMI",
+  "pathPattern" : ".*/usr_pkgs/luxoft/populus/.*"
+}, {
+  "componentName" : "Online",
+  "pathPattern" : ".*/usr_pkgs/luxoft/rsi_proxy/.*"
+}, {
+  "componentName" : "Online",
+  "pathPattern" : ".*/usr_pkgs/luxoft/sai_common/.*"
+}, {
+  "componentName" : "Security",
+  "pathPattern" : ".*/usr_pkgs/luxoft/security/.*"
+}, {
+  "componentName" : "Audio FU",
+  "pathPattern" : ".*/usr_pkgs/luxoft/speech_quality/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/svt_bridge/.*"
+}, {
+  "componentName" : "SWDL",
+  "pathPattern" : ".*/usr_pkgs/luxoft/swup/.*"
+}, {
+  "componentName" : "Logging_Replay",
+  "pathPattern" : ".*/usr_pkgs/luxoft/tracereplay/.*"
+}, {
+  "componentName" : "Vehicle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/vehicle/.*"
+}, {
+  "componentName" : "Vehicle",
+  "pathPattern" : ".*/usr_pkgs/luxoft/vehicle_MQB37w/.*"
+}, {
+  "componentName" : "Online",
+  "pathPattern" : ".*/usr_pkgs/luxoft/viwiproxy/.*"
+}, {
+  "componentName" : "WD",
+  "pathPattern" : ".*/usr_pkgs/luxoft/watchdog/.*"
+}, {
+  "componentName" : "WavePlayer",
+  "pathPattern" : ".*/usr_pkgs/luxoft/wave_player/.*"
+}, {
+  "componentName" : "Networking_Firewall",
+  "pathPattern" : ".*/usr_pkgs/luxoft/wnpp/networking/.*"
+}, {
+  "componentName" : "Phone Connection manager",
+  "pathPattern" : ".*/usr_pkgs/luxoft/wnpp/phconnmng/.*"
+}, {
+  "componentName" : "Personalization",
+  "pathPattern" : ".*/usr_pkgs/luxoft/wnpp/pso/.*"
+}, {
+  "componentName" : "WiFi",
+  "pathPattern" : ".*/usr_pkgs/luxoft/wnpp/wifi/.*"
+}, {
+  "componentName" : "Networking_Firewall",
+  "pathPattern" : ".*/usr_pkgs/luxoft/wnpp/wnpp_common/.*"
+}, {
+  "componentName" : "opensynergy",
+  "pathPattern" : ".*/usr_pkgs/opensynergy/ecnr/.*"
+}, {
+  "componentName" : "sab",
+  "pathPattern" : ".*/usr_pkgs/sab/.*"
+}, {
+  "componentName" : "sab",
+  "pathPattern" : ".*/usr_pkgs/sab-system-tools/.*"
+}, {
+  "componentName" : "symbio",
+  "pathPattern" : ".*/usr_pkgs/symbio/scclib/.*"
+}, {
+  "componentName" : "Platform",
+  "pathPattern" : ".*/linux/.*"
+}, {
+  "componentName" : "NOT_USE",
+  "pathPattern" : ".*/vup_sdk/.*"
+}, {
+  "componentName" : "RH850",
+  "pathPattern" : ".*/BSW/.*"
+}, {
+  "componentName" : "Assign to domain",
+  "pathPattern" : ".*/.*"
+} ]
