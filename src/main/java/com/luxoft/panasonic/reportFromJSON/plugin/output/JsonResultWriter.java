@@ -2,17 +2,16 @@ package com.luxoft.panasonic.reportFromJSON.plugin.output;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonWriter;
-import com.luxoft.panasonic.reportFromJSON.plugin.beans.Event;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.UnsortedIssue;
-import com.luxoft.panasonic.reportFromJSON.plugin.input.MyJsonReader;
+import com.luxoft.panasonic.reportFromJSON.plugin.input.JsonReaderForSmallJson;
 
 import java.io.*;
 
-public class MyJsonWriter {
+public class JsonResultWriter {
     private String pathToJsonFile;
 
-    public MyJsonWriter(String pathToJsonFile) {
+    public JsonResultWriter(String pathToJsonFile) {
         this.pathToJsonFile = pathToJsonFile;
     }
 
@@ -40,6 +39,6 @@ public class MyJsonWriter {
         }
     }
 
-    public void compareJsons(MyJsonReader bigJson, MyJsonReader smallJson) {
+    public void compareJsons(JsonReaderForSmallJson bigJson, JsonReaderForSmallJson smallJson) {
     }
 }

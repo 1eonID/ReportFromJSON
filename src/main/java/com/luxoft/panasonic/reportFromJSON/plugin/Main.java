@@ -1,13 +1,13 @@
 package com.luxoft.panasonic.reportFromJSON.plugin;
 
-import com.luxoft.panasonic.reportFromJSON.plugin.input.MyJsonReader;
-import com.luxoft.panasonic.reportFromJSON.plugin.output.MyJsonWriter;
+import com.luxoft.panasonic.reportFromJSON.plugin.input.JsonReaderForSmallJson;
+import com.luxoft.panasonic.reportFromJSON.plugin.output.JsonResultWriter;
 
 public class Main {
     public static void main(String[] args) {
-        MyJsonReader bigJson = new MyJsonReader(args[0]);
-        MyJsonReader smallJson = new MyJsonReader(args[1]);
-        MyJsonWriter result = new MyJsonWriter(args[2]);
+        JsonReaderForSmallJson bigJson = new JsonReaderForSmallJson(args[0]);
+        JsonReaderForSmallJson smallJson = new JsonReaderForSmallJson(args[1]);
+        JsonResultWriter result = new JsonResultWriter("D:\\ReportFromJson\\output.json");
         result.compareJsons(bigJson, smallJson);
     }
 }

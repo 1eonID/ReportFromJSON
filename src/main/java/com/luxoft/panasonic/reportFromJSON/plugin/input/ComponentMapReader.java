@@ -18,10 +18,6 @@ public class ComponentMapReader {
         return fileRules;
     }
 
-    public void setFileRules(HashMap<String, String> fileRules) {
-        this.fileRules = fileRules;
-    }
-
     private void readFileAndFillMap() {
 
         try {
@@ -30,9 +26,10 @@ public class ComponentMapReader {
                     .getResourceAsStream("componentMap.json"), "UTF-8"));
             Gson gson = new GsonBuilder().create();
             ComponentMap[] componentMapsArray = gson.fromJson(reader, ComponentMap[].class);
+            fileRules = new HashMap<>();
 
             for (ComponentMap componentMap: componentMapsArray) {
-                fileRules.put(componentMap.getComponentName(), componentMap.getPathPattern());
+                fileRules.put(componentMap.getPathPattern(), componentMap.getComponentName());
             }
             reader.close();
         } catch (UnsupportedEncodingException e) {
