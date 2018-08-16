@@ -333,7 +333,4 @@
 }, {
   "componentName" : "RH850",
   "pathPattern" : ".*/BSW/.*"
-}, {
-  "componentName" : "Assign to domain",
-  "pathPattern" : ".*/.*"
 } ]

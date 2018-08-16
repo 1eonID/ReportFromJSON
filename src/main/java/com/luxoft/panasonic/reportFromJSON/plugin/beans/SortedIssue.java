@@ -13,6 +13,4 @@ public class SortedIssue {
     private Integer lineNumber;
     private String domain;
     private String issuePriority;  //Critical(High) or Major(Medium)
-//    private String issueStatus;  //NewDetected or Fixed
-
 }

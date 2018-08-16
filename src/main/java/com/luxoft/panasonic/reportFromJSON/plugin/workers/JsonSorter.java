@@ -13,23 +13,37 @@ public class JsonSorter {
     private final ComponentMapReader componentMap = new ComponentMapReader();
     private final List<PriorityMap> priorityMapList = priorityMap.getPriorityMapList();
     private final HashMap<String, String> componentHashMap = componentMap.getFileRules();
-    private final String eventDescription = "";
-    private final Integer lineNumber = 0;
+    private String issuePriority;
+    private String getIssuePriority() {
+        return issuePriority;
+    }
 
-    public SortedIssue getSortedIssue(String mergeKey, String checkerName, String strippedMainEventFilePath, String subcategory) {
-        String domain = "";
-        String issuePriority;
+    private void setIssuePriority(String issuePriority) {
+        this.issuePriority = issuePriority;
+    }
 
-        for (PriorityMap priorityMap : priorityMapList) {
-            if (checkerName.contains(priorityMap.getChecker()) && subcategory.contains(priorityMap.getIssueCategory())) {
-                issuePriority = priorityMap.getPriority();
-                for (HashMap.Entry<String, String> entry : componentHashMap.entrySet()) {
-                    if (strippedMainEventFilePath.contains(entry.getKey())) {
-                        domain = entry.getValue();
-                    }
-                }
-                return new SortedIssue(mergeKey, checkerName, strippedMainEventFilePath, eventDescription, lineNumber, domain, issuePriority);
+
+    public SortedIssue getSortedIssue(String mergeKey, String checkerName, String strippedMainEventFilePath) {
+        final String eventDescription = "";
+        final Integer lineNumber = 0;
+        String domain = "Assign to domain";
+        issuePriority = getIssuePriority();
+
+        for (HashMap.Entry<String, String> entry : componentHashMap.entrySet()) {
+            if (strippedMainEventFilePath.contains(entry.getKey())) { //ToDo
+                domain = entry.getValue();
             }
         }
+        return new SortedIssue(mergeKey, checkerName, strippedMainEventFilePath, eventDescription, lineNumber, domain, issuePriority);
+    }
+
+    public boolean priorityIsHighOrMedium(String checkerName) {
+        for (PriorityMap priorityMap : priorityMapList) {
+            if (checkerName.contains(priorityMap.getChecker())) { //Only Checker, without Subcategory
+                setIssuePriority(priorityMap.getPriority());
+                return true;
+            }
+        }
+        return false;
     }
 }

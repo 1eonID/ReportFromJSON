@@ -17,11 +17,11 @@
 },
 { "checker" : "BUFFER_SIZE",
   "issueCategory" : "Memory - corruptions",
-  "priority" : "High"
+  "priority" : "High/Low"
 },
 { "checker" : "BUFFER_SIZE",
   "issueCategory" : "Memory - illegal addresses",
-  "priority" : "High"
+  "priority" : "High/Low"
 },
 { "checker" : "BUFFER_SIZE_WARNING",
   "issueCategory" : "Memory - illegal accesses",
@@ -65,27 +65,31 @@
 },
 { "checker" : "INCOMPATIBLE_CAST",
   "issueCategory" : "Memory - illegal accesses",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "INCOMPATIBLE_CAST",
   "issueCategory" : "Memory - corruptions",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "INCOMPATIBLE_CAST",
   "issueCategory" : "Uninitialized variables",
-  "priority" : "High"
+  "priority" : "High/Medium"
+},
+{ "checker" : "MISSING_RETURN",
+  "issueCategory" : "Uninitialized variables",
+  "priority" : "High/Low"
 },
 { "checker" : "NEGATIVE_RETURNS",
   "issueCategory" : "Memory - corruptions",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "NEGATIVE_RETURNS",
   "issueCategory" : "Memory - illegal accesses",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "NEGATIVE_RETURNS",
   "issueCategory" : "Resource leaks",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "OVERRUN",
   "issueCategory" : "Memory - corruptions",
@@ -129,11 +133,11 @@
 },
 { "checker" : "REVERSE_NEGATIVE",
   "issueCategory" : "Memory - illegal accesses",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "REVERSE_NEGATIVE",
   "issueCategory" : "Memory - corruptions",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "SIZECHECK",
   "issueCategory" : "Memory - corruptions",
@@ -147,9 +151,9 @@
   "issueCategory" : "Memory - illegal accesses",
   "priority" : "High"
 },
-{ "checker" : "STRING_NULL",
+{ "checker" : "STRING_OVERFLOW",
   "issueCategory" : "Memory - corruptions",
-  "priority" : "High"
+  "priority" : "High/Low"
 },
 { "checker" : "STRING_SIZE",
   "issueCategory" : "Memory - corruptions",
@@ -157,11 +161,11 @@
 },
 { "checker" : "SYMBIAN.CLEANUP_STACK",
   "issueCategory" : "Resource leaks",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "SYMBIAN.CLEANUP_STACK",
   "issueCategory" : "Memory - corruptions",
-  "priority" : "High"
+  "priority" : "High/Medium"
 },
 { "checker" : "UNINIT",
   "issueCategory" : "Memory - corruptions",
@@ -289,11 +293,11 @@
 },
 { "checker" : "INTEGER_OVERFLOW",
   "issueCategory" : "Insecure data handling",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "INTEGER_OVERFLOW",
   "issueCategory" : "Integer handling issues",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "INVALIDATE_ITERATOR",
   "issueCategory" : "API usage errors",
@@ -305,7 +309,7 @@
 },
 { "checker" : "MISMATCHED_ITERATOR",
   "issueCategory" : "Control flow issues",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "MISRA_CAST",
   "issueCategory" : "Integer handling issues",
@@ -321,23 +325,23 @@
 },
 { "checker" : "MISSING_RESTORE",
   "issueCategory" : "Likely",
-  "priority" : "Medium"
+  "priority" : "Medium/Low"
 },
 { "checker" : "MIXED_ENUMS",
   "issueCategory" : "Incorrect expression",
   "priority" : "Medium"
 },
-{ "checker" : "MIXED_ENUMS",
+{ "checker" : "NEGATIVE_RETURNS",
   "issueCategory" : "Integer handling issues",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
-{ "checker" : "MIXED_ENUMS",
+{ "checker" : "NEGATIVE_RETURNS",
   "issueCategory" : "Error handling issues",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
-{ "checker" : "MIXED_ENUMS",
+{ "checker" : "NEGATIVE_RETURNS",
   "issueCategory" : "Program hangs",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "NESTING_INDENT_MISMATCH",
   "issueCategory" : "Control flow issues",
@@ -345,15 +349,15 @@
 },
 { "checker" : "NO_EFFECT",
   "issueCategory" : "Incorrect expression",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "NO_EFFECT",
   "issueCategory" : "Control flow issues",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "NO_EFFECT",
   "issueCategory" : "Integer handling issues",
-  "priority" : "Medium"
+  "priority" : "High/Medium"
 },
 { "checker" : "NULL_RETURNS",
   "issueCategory" : "Null pointer dereferences",
@@ -441,7 +445,7 @@
 },
 { "checker" : "SIZEOF_MISMATCH",
   "issueCategory" : "Incorrect expression",
-  "priority" : "Medium"
+  "priority" : "High/Medium/Low"
 },
 { "checker" : "SLEEP",
   "issueCategory" : "Program hangs",
@@ -478,6 +482,10 @@
 { "checker" : "UNREACHABLE",
   "issueCategory" : "Control flow issues",
   "priority" : "Medium"
+},
+{ "checker" : "VIRTUAL_DTOR",
+  "issueCategory" : "Control flow issues",
+  "priority" : "High/Low"
 },
 { "checker" : "VARARGS",
   "issueCategory" : "API usage errors",

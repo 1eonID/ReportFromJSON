@@ -1,6 +1,7 @@
 package com.luxoft.panasonic.reportFromJSON.plugin.input;
 
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
+import com.luxoft.panasonic.reportFromJSON.plugin.workers.JsonSorter;
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
@@ -11,15 +12,20 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonReaderForSmallJson {
+public class JsonReaderFromFile {
     private String pathToJsonFile;
     private List<SortedIssue> sortedIssueList;
 
-    public JsonReaderForSmallJson(String pathToJsonFile) {
+    public JsonReaderFromFile(String pathToJsonFile) {
         this.pathToJsonFile = pathToJsonFile;
+        readInputJson();
     }
 
-    public void readInputJson() {
+    public List<SortedIssue> getSortedIssueList() {
+        return sortedIssueList;
+    }
+
+    private void readInputJson() {
         JsonFactory f = new MappingJsonFactory();
         JsonParser jp;
         try {
@@ -42,29 +48,33 @@ public class JsonReaderForSmallJson {
                         String mergeKey;
                         String checkerName;
                         String strippedMainEventFilePath;
-                        String subcategory;
-                        String eventDescription = "";
-                        Integer lineNumber = 0;
+                        String eventDescription;
+                        Integer lineNumber;
                         sortedIssueList = new ArrayList<>();
+                        JsonSorter jsonSorter = new JsonSorter();
 
                         // For each of the records in the array
                         while (jp.nextToken() != JsonToken.END_ARRAY) {
                             JsonNode node = jp.readValueAsTree();
                             mergeKey = node.get("mergeKey").getTextValue();
                             checkerName = node.get("checkerName").getTextValue();
-                            subcategory = node.get("subcategory").getTextValue();
                             strippedMainEventFilePath = node.get("strippedMainEventFilePathname").getTextValue();
 
 
-                            JsonNode eventsNode = node.path("events");
-                            if (eventsNode.isArray()) {
-                                for (JsonNode evNode: eventsNode) {
-                                    eventDescription = evNode.get("eventDescription").getTextValue();
-                                    lineNumber = evNode.get("lineNumber").getIntValue();
-                                    sortedIssueList.add(new SortedIssue(mergeKey, checkerName, subcategory, strippedMainEventFilePath, eventDescription, lineNumber));
+                            if (jsonSorter.priorityIsHighOrMedium(checkerName)) {
+                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(mergeKey, checkerName, strippedMainEventFilePath);
+                                JsonNode eventsNode = node.path("events");
+                                if (eventsNode.isArray()) {
+                                    for (JsonNode evNode: eventsNode) {
+                                        eventDescription = evNode.get("eventDescription").getTextValue();
+                                        lineNumber = evNode.get("lineNumber").getIntValue();
+                                        sortedIssue.setEventDescription(eventDescription);
+                                        sortedIssue.setLineNumber(lineNumber);
+                                        sortedIssueList.add(sortedIssue);
+                                    }
+                                } else {
+                                    sortedIssueList.add(sortedIssue);
                                 }
-                            } else {
-                                sortedIssueList.add(new SortedIssue(mergeKey, checkerName, subcategory, strippedMainEventFilePath, eventDescription, lineNumber));
                             }
                         }
                     } else {
