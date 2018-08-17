@@ -14,6 +14,7 @@ public class JsonSorter {
     private final List<PriorityMap> priorityMapList = priorityMap.getPriorityMapList();
     private final HashMap<String, String> componentHashMap = componentMap.getFileRules();
     private String issuePriority;
+
     private String getIssuePriority() {
         return issuePriority;
     }
@@ -23,18 +24,16 @@ public class JsonSorter {
     }
 
 
-    public SortedIssue getSortedIssue(String mergeKey, String checkerName, String strippedMainEventFilePath) {
-        final String eventDescription = "";
-        final Integer lineNumber = 0;
+    public SortedIssue getSortedIssue(String mergeKey, String checkerName, String strippedMainEventFilePath, Integer mainEventLineNumber) {
         String domain = "Assign to domain";
         issuePriority = getIssuePriority();
 
         for (HashMap.Entry<String, String> entry : componentHashMap.entrySet()) {
-            if (strippedMainEventFilePath.contains(entry.getKey())) { //ToDo
+            if (strippedMainEventFilePath.matches(entry.getKey())) {
                 domain = entry.getValue();
             }
         }
-        return new SortedIssue(mergeKey, checkerName, strippedMainEventFilePath, eventDescription, lineNumber, domain, issuePriority);
+        return new SortedIssue(mergeKey, checkerName, strippedMainEventFilePath, mainEventLineNumber, domain, issuePriority);
     }
 
     public boolean priorityIsHighOrMedium(String checkerName) {

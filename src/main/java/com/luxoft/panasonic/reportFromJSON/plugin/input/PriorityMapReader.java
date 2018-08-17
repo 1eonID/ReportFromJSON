@@ -7,7 +7,7 @@ import com.luxoft.panasonic.reportFromJSON.plugin.beans.PriorityMap;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class PriorityMapReader {
         try {
             JsonReader reader = new JsonReader(new InputStreamReader(getClass()
                     .getClassLoader()
-                    .getResourceAsStream("priorityMap.json"), "UTF-8"));
+                    .getResourceAsStream("priorityMap.json"), StandardCharsets.UTF_8));
             Gson gson = new GsonBuilder().create();
             PriorityMap[] priorityMapsArray = gson.fromJson(reader, PriorityMap[].class);
             priorityMapList = new ArrayList<>();
@@ -36,8 +36,6 @@ public class PriorityMapReader {
                 priorityMapList.add(new PriorityMap(priorityMap.getChecker(), priorityMap.getIssueCategory(), priorityMap.getPriority()));
             }
             reader.close();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

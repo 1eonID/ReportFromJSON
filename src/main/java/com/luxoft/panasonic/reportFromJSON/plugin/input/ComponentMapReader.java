@@ -5,6 +5,7 @@ import com.google.gson.stream.JsonReader;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.ComponentMap;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class ComponentMapReader {
@@ -23,7 +24,7 @@ public class ComponentMapReader {
         try {
             JsonReader reader = new JsonReader(new InputStreamReader(getClass()
                     .getClassLoader()
-                    .getResourceAsStream("componentMap.json"), "UTF-8"));
+                    .getResourceAsStream("componentMap.json"), StandardCharsets.UTF_8));
             Gson gson = new GsonBuilder().create();
             ComponentMap[] componentMapsArray = gson.fromJson(reader, ComponentMap[].class);
             fileRules = new HashMap<>();
@@ -32,8 +33,6 @@ public class ComponentMapReader {
                 fileRules.put(componentMap.getPathPattern(), componentMap.getComponentName());
             }
             reader.close();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

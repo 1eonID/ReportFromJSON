@@ -26,9 +26,7 @@ public class JsonResultWriter {
 
             Iterator iterator = resultIssueSet.iterator();
             while (iterator.hasNext()) {
-                // Create a new Gson object
                 Gson gson = new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create();
-                //convert the Java object to json
                 writer.setIndent("\t");
                 gson.toJson(iterator.next(), ResultIssue.class, writer);
             }

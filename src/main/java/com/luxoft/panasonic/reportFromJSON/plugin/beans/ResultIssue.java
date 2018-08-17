@@ -9,8 +9,7 @@ public class ResultIssue {
     private String mergeKey;
     private String checkerName;
     private String strippedMainEventFilePath;
-    private String eventDescription;
-    private Integer lineNumber;
+    private Integer mainEventLineNumber;
     private String domain;
     private String issuePriority;  //Critical(High) or Major(Medium)
     private String issueStatus;  //NewDetected or Fixed
