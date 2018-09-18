@@ -6,7 +6,7 @@
 
     <groupId>com.luxoft.panasonic.reportFromJSON.plugin</groupId>
     <artifactId>ReportFromJSON</artifactId>
-    <version>1.0.1-ALM</version>
+    <version>1.0.4-ALM</version>
     <organization>
         <name>Luxoft</name>
         <url>http://www.luxoft.com/</url>

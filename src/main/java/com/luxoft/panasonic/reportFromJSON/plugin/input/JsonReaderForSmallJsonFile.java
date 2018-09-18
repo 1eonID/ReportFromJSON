@@ -46,9 +46,11 @@ public class JsonReaderForSmallJsonFile {
                 if (fieldName.equals("issues")) {
                     if (current == JsonToken.START_ARRAY) {
                         String mergeKey;
+                        Integer occurrenceNumberInMK;
                         String checkerName;
                         String strippedMainEventFilePath;
                         Integer mainEventLineNumber;
+                        String functionMangledName;
                         sortedIssueList = new ArrayList<>();
                         JsonSorter jsonSorter = new JsonSorter();
 
@@ -56,12 +58,14 @@ public class JsonReaderForSmallJsonFile {
                         while (jp.nextToken() != JsonToken.END_ARRAY) {
                             JsonNode node = jp.readValueAsTree();
                             mergeKey = node.get("mergeKey").getTextValue();
+                            occurrenceNumberInMK = node.get("occurrenceNumberInMK").getIntValue();
                             checkerName = node.get("checkerName").getTextValue();
                             strippedMainEventFilePath = node.get("strippedMainEventFilePathname").getTextValue();
                             mainEventLineNumber = node.get("mainEventLineNumber").getIntValue();
+                            functionMangledName = node.get("functionMangledName").getTextValue();
 
                             if (jsonSorter.priorityIsHighOrMedium(checkerName)) {
-                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(mergeKey, checkerName, strippedMainEventFilePath, mainEventLineNumber);
+                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(mergeKey, occurrenceNumberInMK, checkerName, strippedMainEventFilePath, mainEventLineNumber, functionMangledName);
                                 sortedIssueList.add(sortedIssue);
                             }
                         }

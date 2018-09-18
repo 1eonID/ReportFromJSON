@@ -24,7 +24,7 @@ public class JsonSorter {
     }
 
 
-    public SortedIssue getSortedIssue(String mergeKey, String checkerName, String strippedMainEventFilePath, Integer mainEventLineNumber) {
+    public SortedIssue getSortedIssue(String mergeKey, Integer occurrenceNumberInMK, String checkerName, String strippedMainEventFilePath, Integer mainEventLineNumber, String  functionMangledName) {
         String domain = "Assign to domain";
         issuePriority = getIssuePriority();
 
@@ -33,7 +33,7 @@ public class JsonSorter {
                 domain = entry.getValue();
             }
         }
-        return new SortedIssue(mergeKey, checkerName, strippedMainEventFilePath, mainEventLineNumber, domain, issuePriority);
+        return new SortedIssue(mergeKey, occurrenceNumberInMK, checkerName, strippedMainEventFilePath, mainEventLineNumber, functionMangledName, domain, issuePriority);
     }
 
     public boolean priorityIsHighOrMedium(String checkerName) {

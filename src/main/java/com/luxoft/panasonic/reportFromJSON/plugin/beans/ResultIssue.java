@@ -7,9 +7,11 @@ import lombok.Data;
 @AllArgsConstructor
 public class ResultIssue {
     private String mergeKey;
+    private Integer occurrenceNumberInMK;
     private String checkerName;
     private String strippedMainEventFilePath;
     private Integer mainEventLineNumber;
+    private String functionMangledName;
     private String domain;
     private String issuePriority;  //Critical(High) or Major(Medium)
     private String issueStatus;  //NewDetected or Fixed
