@@ -2,8 +2,7 @@ package com.luxoft.panasonic.reportFromJSON.plugin.workers;
 
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.ResultIssue;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
-import com.luxoft.panasonic.reportFromJSON.plugin.input.JsonReaderForSmallJsonFile;
-import com.luxoft.panasonic.reportFromJSON.plugin.input.JsonReaderForSortedBigJson;
+import com.luxoft.panasonic.reportFromJSON.plugin.input.JsonReaderForJsonFile;
 
 import java.util.HashSet;
 import java.util.List;
@@ -16,8 +15,8 @@ public class JsonsComparator {
     }
 
     public void compare(String pathToBigJson, String  pathToSmallJson) {
-        JsonReaderForSortedBigJson jsonReaderFromBigJson = new JsonReaderForSortedBigJson(pathToBigJson);
-        JsonReaderForSmallJsonFile jsonReaderFromSmallJson = new JsonReaderForSmallJsonFile(pathToSmallJson);
+        JsonReaderForJsonFile jsonReaderFromBigJson = new JsonReaderForJsonFile(pathToBigJson);
+        JsonReaderForJsonFile jsonReaderFromSmallJson = new JsonReaderForJsonFile(pathToSmallJson);
 
         List<SortedIssue> listOfIssueFromBigJson = jsonReaderFromBigJson.getSortedIssueList();
         List<SortedIssue> listOfIssueFromSmallJson = jsonReaderFromSmallJson.getSortedIssueList();
@@ -27,22 +26,11 @@ public class JsonsComparator {
         resultIssueSet = new HashSet<>();
 
         for (SortedIssue sortedIssueInSmallJson : listOfIssueFromSmallJson) {
-            if (sortedIssueInSmallJson.getFunctionMangledName() == null) {
-                sortedIssueInSmallJson.setFunctionMangledName("");
-            }
             issuePriorityFlag = "";
             for (SortedIssue sortedIssueInBigJson : listOfIssueFromBigJson) {
-                if (sortedIssueInBigJson.getFunctionMangledName() == null) {
-                    sortedIssueInBigJson.setFunctionMangledName("");
-                }
-                if (sortedIssueInSmallJson.getMergeKey().contains(sortedIssueInBigJson.getMergeKey()) &&
-                        sortedIssueInSmallJson.getMainEventLineNumber().equals(sortedIssueInBigJson.getMainEventLineNumber()) &&
-                            sortedIssueInSmallJson.getOccurrenceNumberInMK().equals(sortedIssueInBigJson.getOccurrenceNumberInMK()) &&
-                                sortedIssueInSmallJson.getFunctionMangledName().equals(sortedIssueInBigJson.getFunctionMangledName())) {
-                    resultIssue = new ResultIssue(sortedIssueInSmallJson.getMergeKey(), sortedIssueInSmallJson.getOccurrenceNumberInMK(),
-                            sortedIssueInSmallJson.getCheckerName(), sortedIssueInSmallJson.getStrippedMainEventFilePath(),
-                            sortedIssueInSmallJson.getMainEventLineNumber(), sortedIssueInSmallJson.getFunctionMangledName(), sortedIssueInSmallJson.getDomain(),
-                            sortedIssueInSmallJson.getIssuePriority(), "Not Fixed");
+                if (sortedIssueInSmallJson.getMergeKey().contains(sortedIssueInBigJson.getMergeKey())) {
+                    resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(), sortedIssueInSmallJson.getCheckerName(),
+                            sortedIssueInSmallJson.getFilePath(), sortedIssueInSmallJson.getDomain(), sortedIssueInSmallJson.getIssuePriority(), "Not Fixed");
                     resultIssueSet.add(resultIssue);
                     issuePriorityFlag = "Not Fixed";
                     listOfIssueFromBigJson.remove(sortedIssueInBigJson);
@@ -50,22 +38,15 @@ public class JsonsComparator {
                 }
             }
             if (!issuePriorityFlag.contains("Not Fixed")) {
-                resultIssue = new ResultIssue(sortedIssueInSmallJson.getMergeKey(), sortedIssueInSmallJson.getOccurrenceNumberInMK(),
-                        sortedIssueInSmallJson.getCheckerName(), sortedIssueInSmallJson.getStrippedMainEventFilePath(),
-                        sortedIssueInSmallJson.getMainEventLineNumber(), sortedIssueInSmallJson.getFunctionMangledName(), sortedIssueInSmallJson.getDomain(),
-                        sortedIssueInSmallJson.getIssuePriority(), "New Detected");
+                resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(), sortedIssueInSmallJson.getCheckerName(),
+                        sortedIssueInSmallJson.getFilePath(), sortedIssueInSmallJson.getDomain(), sortedIssueInSmallJson.getIssuePriority(), "New Detected");
                 resultIssueSet.add(resultIssue);
             }
         }
 
         for (SortedIssue sortedIssueInBigJson : listOfIssueFromBigJson) {
-            if (sortedIssueInBigJson.getFunctionMangledName() == null) {
-                sortedIssueInBigJson.setFunctionMangledName("");
-            }
-            resultIssue = new ResultIssue(sortedIssueInBigJson.getMergeKey(), sortedIssueInBigJson.getOccurrenceNumberInMK(),
-                    sortedIssueInBigJson.getCheckerName(), sortedIssueInBigJson.getStrippedMainEventFilePath(),
-                    sortedIssueInBigJson.getMainEventLineNumber(), sortedIssueInBigJson.getFunctionMangledName(), sortedIssueInBigJson.getDomain(),
-                    sortedIssueInBigJson.getIssuePriority(), "Fixed");
+            resultIssue = new ResultIssue(sortedIssueInBigJson.getCid(), sortedIssueInBigJson.getMergeKey(), sortedIssueInBigJson.getCheckerName(),
+                    sortedIssueInBigJson.getFilePath(), sortedIssueInBigJson.getDomain(), sortedIssueInBigJson.getIssuePriority(), "Fixed");
             resultIssueSet.add(resultIssue);
         }
     }

@@ -7,16 +7,17 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonToken;
 import org.codehaus.jackson.map.MappingJsonFactory;
+import org.codehaus.jackson.node.ArrayNode;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonReaderForSmallJsonFile {
+public class JsonReaderForJsonFile {
     private String pathToJsonFile;
     private List<SortedIssue> sortedIssueList;
 
-    public JsonReaderForSmallJsonFile(String pathToJsonFile) {
+    public JsonReaderForJsonFile(String pathToJsonFile) {
         this.pathToJsonFile = pathToJsonFile;
         readInputJson();
     }
@@ -43,29 +44,46 @@ public class JsonReaderForSmallJsonFile {
                 String fieldName = jp.getCurrentName();
                 // move from field name to field value
                 current = jp.nextToken();
-                if (fieldName.equals("issues")) {
+                if (fieldName.equals("issueInfo")) {
                     if (current == JsonToken.START_ARRAY) {
+                        Integer cid;
                         String mergeKey;
-                        Integer occurrenceNumberInMK;
                         String checkerName;
-                        String strippedMainEventFilePath;
-                        Integer mainEventLineNumber;
-                        String functionMangledName;
+                        String filePath;
+                        String domain;
+
                         sortedIssueList = new ArrayList<>();
                         JsonSorter jsonSorter = new JsonSorter();
 
                         // For each of the records in the array
-                        while (jp.nextToken() != JsonToken.END_ARRAY) {
+                        while (jp.nextToken() != JsonToken.END_ARRAY && jp.getCurrentToken() != JsonToken.END_OBJECT) {
                             JsonNode node = jp.readValueAsTree();
-                            mergeKey = node.get("mergeKey").getTextValue();
-                            occurrenceNumberInMK = node.get("occurrenceNumberInMK").getIntValue();
-                            checkerName = node.get("checkerName").getTextValue();
-                            strippedMainEventFilePath = node.get("strippedMainEventFilePathname").getTextValue();
-                            mainEventLineNumber = node.get("mainEventLineNumber").getIntValue();
-                            functionMangledName = node.get("functionMangledName").getTextValue();
+                            if (node.get("cid") == null) {
+                                cid = 0;
+                            } else {
+                                cid = node.get("cid").getIntValue();
+                            }
+                            if (node.get("mergeKey") == null) {
+                                mergeKey = "";
+                            } else {
+                                mergeKey = node.get("mergeKey").getTextValue();
+                            }
+                            checkerName = "none";
+                            filePath = "none";
+                            domain = "none";
+                            if (node.get("occurrences").isArray()) {
+                                ArrayNode occurrencesArray = (ArrayNode) node.get("occurrences");
+                                if (occurrencesArray.size() > 0) {
+                                    for (JsonNode arrayNode : occurrencesArray) {
+                                        checkerName = arrayNode.get("checker").getTextValue();
+                                        filePath = arrayNode.get("file").getTextValue();
+                                        domain = arrayNode.get("componentName").getTextValue();
+                                    }
+                                }
+                            }
 
                             if (jsonSorter.priorityIsHighOrMedium(checkerName)) {
-                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(mergeKey, occurrenceNumberInMK, checkerName, strippedMainEventFilePath, mainEventLineNumber, functionMangledName);
+                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(cid, mergeKey, checkerName, filePath, domain);
                                 sortedIssueList.add(sortedIssue);
                             }
                         }

@@ -2,17 +2,13 @@ package com.luxoft.panasonic.reportFromJSON.plugin.workers;
 
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.PriorityMap;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
-import com.luxoft.panasonic.reportFromJSON.plugin.input.ComponentMapReader;
 import com.luxoft.panasonic.reportFromJSON.plugin.input.PriorityMapReader;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class JsonSorter {
     private final PriorityMapReader priorityMap = new PriorityMapReader();
-    private final ComponentMapReader componentMap = new ComponentMapReader();
     private final List<PriorityMap> priorityMapList = priorityMap.getPriorityMapList();
-    private final HashMap<String, String> componentHashMap = componentMap.getFileRules();
     private String issuePriority;
 
     private String getIssuePriority() {
@@ -24,21 +20,15 @@ public class JsonSorter {
     }
 
 
-    public SortedIssue getSortedIssue(String mergeKey, Integer occurrenceNumberInMK, String checkerName, String strippedMainEventFilePath, Integer mainEventLineNumber, String  functionMangledName) {
-        String domain = "Assign to domain";
+    public SortedIssue getSortedIssue(Integer cid, String mergeKey, String checkerName, String filePath, String domain) {
         issuePriority = getIssuePriority();
 
-        for (HashMap.Entry<String, String> entry : componentHashMap.entrySet()) {
-            if (strippedMainEventFilePath.matches(entry.getKey())) {
-                domain = entry.getValue();
-            }
-        }
-        return new SortedIssue(mergeKey, occurrenceNumberInMK, checkerName, strippedMainEventFilePath, mainEventLineNumber, functionMangledName, domain, issuePriority);
+        return new SortedIssue(cid, mergeKey, checkerName, filePath, domain, issuePriority);
     }
 
     public boolean priorityIsHighOrMedium(String checkerName) {
         for (PriorityMap priorityMap : priorityMapList) {
-            if (checkerName.contains(priorityMap.getChecker())) { //Only Checker, without Subcategory
+            if (checkerName.contains(priorityMap.getChecker())) {
                 setIssuePriority(priorityMap.getPriority());
                 return true;
             }
