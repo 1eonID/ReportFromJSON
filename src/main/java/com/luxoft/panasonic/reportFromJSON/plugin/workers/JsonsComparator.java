@@ -29,8 +29,8 @@ public class JsonsComparator {
             issuePriorityFlag = "";
             for (SortedIssue sortedIssueInBigJson : listOfIssueFromBigJson) {
                 if (sortedIssueInSmallJson.getMergeKey().contains(sortedIssueInBigJson.getMergeKey())) {
-                    resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(), sortedIssueInSmallJson.getCheckerName(),
-                            sortedIssueInSmallJson.getFilePath(), sortedIssueInSmallJson.getDomain(), sortedIssueInSmallJson.getIssuePriority(), "Not Fixed");
+                    resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(),
+                            sortedIssueInSmallJson.getOccurrences(), sortedIssueInSmallJson.getIssuePriority(), "Not Fixed");
                     resultIssueSet.add(resultIssue);
                     issuePriorityFlag = "Not Fixed";
                     listOfIssueFromBigJson.remove(sortedIssueInBigJson);
@@ -38,15 +38,15 @@ public class JsonsComparator {
                 }
             }
             if (!issuePriorityFlag.contains("Not Fixed")) {
-                resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(), sortedIssueInSmallJson.getCheckerName(),
-                        sortedIssueInSmallJson.getFilePath(), sortedIssueInSmallJson.getDomain(), sortedIssueInSmallJson.getIssuePriority(), "New Detected");
+                resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(),
+                        sortedIssueInSmallJson.getOccurrences(), sortedIssueInSmallJson.getIssuePriority(), "New Detected");
                 resultIssueSet.add(resultIssue);
             }
         }
 
         for (SortedIssue sortedIssueInBigJson : listOfIssueFromBigJson) {
-            resultIssue = new ResultIssue(sortedIssueInBigJson.getCid(), sortedIssueInBigJson.getMergeKey(), sortedIssueInBigJson.getCheckerName(),
-                    sortedIssueInBigJson.getFilePath(), sortedIssueInBigJson.getDomain(), sortedIssueInBigJson.getIssuePriority(), "Fixed");
+            resultIssue = new ResultIssue(sortedIssueInBigJson.getCid(), sortedIssueInBigJson.getMergeKey(),
+                    sortedIssueInBigJson.getOccurrences(), sortedIssueInBigJson.getIssuePriority(), "Fixed");
             resultIssueSet.add(resultIssue);
         }
     }

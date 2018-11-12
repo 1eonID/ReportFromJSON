@@ -1,5 +1,6 @@
 package com.luxoft.panasonic.reportFromJSON.plugin.input;
 
+import com.luxoft.panasonic.reportFromJSON.plugin.beans.Occurrences;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
 import com.luxoft.panasonic.reportFromJSON.plugin.workers.JsonSorter;
 import org.codehaus.jackson.JsonFactory;
@@ -50,7 +51,11 @@ public class JsonReaderForJsonFile {
                         String mergeKey;
                         String checkerName;
                         String filePath;
+                        String function;
+                        Integer mainEventLineNumber;
+                        String mainEventDescription;
                         String domain;
+                        List<Occurrences> occurrences;
 
                         sortedIssueList = new ArrayList<>();
                         JsonSorter jsonSorter = new JsonSorter();
@@ -70,20 +75,29 @@ public class JsonReaderForJsonFile {
                             }
                             checkerName = "none";
                             filePath = "none";
+                            function = "none";
+                            mainEventLineNumber = 0;
+                            mainEventDescription = "none";
                             domain = "none";
+                            occurrences = new ArrayList<>();
+
                             if (node.get("occurrences").isArray()) {
                                 ArrayNode occurrencesArray = (ArrayNode) node.get("occurrences");
                                 if (occurrencesArray.size() > 0) {
                                     for (JsonNode arrayNode : occurrencesArray) {
                                         checkerName = arrayNode.get("checker").getTextValue();
                                         filePath = arrayNode.get("file").getTextValue();
+                                        function = arrayNode.get("function").getTextValue();
+                                        mainEventLineNumber = arrayNode.get("mainEventLineNumber").getIntValue();
+                                        mainEventDescription = arrayNode.get("mainEventDescription").getTextValue();
                                         domain = arrayNode.get("componentName").getTextValue();
+                                        occurrences.add(new Occurrences(checkerName, filePath, function, mainEventLineNumber, mainEventDescription, domain));
                                     }
                                 }
                             }
 
                             if (jsonSorter.priorityIsHighOrMedium(checkerName)) {
-                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(cid, mergeKey, checkerName, filePath, domain);
+                                SortedIssue sortedIssue = jsonSorter.getSortedIssue(cid, mergeKey, occurrences);
                                 sortedIssueList.add(sortedIssue);
                             }
                         }

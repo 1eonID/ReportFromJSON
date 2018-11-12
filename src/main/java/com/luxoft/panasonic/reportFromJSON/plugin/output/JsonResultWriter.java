@@ -18,8 +18,7 @@ public class JsonResultWriter {
     }
 
     public void writeResultsToJson(HashSet<ResultIssue> resultIssueSet) {
-        try
-        {
+        try {
             OutputStream outputStream = new FileOutputStream(pathToJsonFile);
             JsonWriter writer = new JsonWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
             writer.beginArray();
@@ -33,8 +32,7 @@ public class JsonResultWriter {
 
             writer.endArray();
             writer.close();
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

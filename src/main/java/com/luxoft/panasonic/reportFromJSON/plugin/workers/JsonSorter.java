@@ -1,5 +1,6 @@
 package com.luxoft.panasonic.reportFromJSON.plugin.workers;
 
+import com.luxoft.panasonic.reportFromJSON.plugin.beans.Occurrences;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.PriorityMap;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
 import com.luxoft.panasonic.reportFromJSON.plugin.input.PriorityMapReader;
@@ -19,11 +20,9 @@ public class JsonSorter {
         this.issuePriority = issuePriority;
     }
 
-
-    public SortedIssue getSortedIssue(Integer cid, String mergeKey, String checkerName, String filePath, String domain) {
+    public SortedIssue getSortedIssue(Integer cid, String mergeKey, List<Occurrences> occurrences) {
         issuePriority = getIssuePriority();
-
-        return new SortedIssue(cid, mergeKey, checkerName, filePath, domain, issuePriority);
+        return new SortedIssue(cid, mergeKey, occurrences, issuePriority);
     }
 
     public boolean priorityIsHighOrMedium(String checkerName) {
