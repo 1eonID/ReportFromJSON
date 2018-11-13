@@ -12,4 +12,5 @@ public class Occurrences {
     private Integer mainEventLineNumber;
     private String mainEventDescription;
     private String domain;
+    private String issueStatus;
 }

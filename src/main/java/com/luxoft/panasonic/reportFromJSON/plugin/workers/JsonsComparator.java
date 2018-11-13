@@ -1,5 +1,6 @@
 package com.luxoft.panasonic.reportFromJSON.plugin.workers;
 
+import com.luxoft.panasonic.reportFromJSON.plugin.beans.Occurrences;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.ResultIssue;
 import com.luxoft.panasonic.reportFromJSON.plugin.beans.SortedIssue;
 import com.luxoft.panasonic.reportFromJSON.plugin.input.JsonReaderForJsonFile;
@@ -29,24 +30,34 @@ public class JsonsComparator {
             issuePriorityFlag = "";
             for (SortedIssue sortedIssueInBigJson : listOfIssueFromBigJson) {
                 if (sortedIssueInSmallJson.getMergeKey().contains(sortedIssueInBigJson.getMergeKey())) {
+                    for (Occurrences occurrences : sortedIssueInSmallJson.getOccurrences()) {
+                        occurrences.setIssueStatus("Not Fixed");
+                    }
                     resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(),
-                            sortedIssueInSmallJson.getOccurrences(), sortedIssueInSmallJson.getIssuePriority(), "Not Fixed");
+                            sortedIssueInSmallJson.getOccurrences(), sortedIssueInSmallJson.getIssuePriority());
                     resultIssueSet.add(resultIssue);
-                    issuePriorityFlag = "Not Fixed";
                     listOfIssueFromBigJson.remove(sortedIssueInBigJson);
+                    issuePriorityFlag = "Not Fixed";
                     break;
                 }
             }
+
             if (!issuePriorityFlag.contains("Not Fixed")) {
+                for (Occurrences occurrences : sortedIssueInSmallJson.getOccurrences()) {
+                    occurrences.setIssueStatus("New Detected");
+                }
                 resultIssue = new ResultIssue(sortedIssueInSmallJson.getCid(), sortedIssueInSmallJson.getMergeKey(),
-                        sortedIssueInSmallJson.getOccurrences(), sortedIssueInSmallJson.getIssuePriority(), "New Detected");
+                        sortedIssueInSmallJson.getOccurrences(), sortedIssueInSmallJson.getIssuePriority());
                 resultIssueSet.add(resultIssue);
             }
         }
 
         for (SortedIssue sortedIssueInBigJson : listOfIssueFromBigJson) {
+            for (Occurrences occurrences : sortedIssueInBigJson.getOccurrences()) {
+                occurrences.setIssueStatus("Fixed");
+            }
             resultIssue = new ResultIssue(sortedIssueInBigJson.getCid(), sortedIssueInBigJson.getMergeKey(),
-                    sortedIssueInBigJson.getOccurrences(), sortedIssueInBigJson.getIssuePriority(), "Fixed");
+                    sortedIssueInBigJson.getOccurrences(), sortedIssueInBigJson.getIssuePriority());
             resultIssueSet.add(resultIssue);
         }
     }

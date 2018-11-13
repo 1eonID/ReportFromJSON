@@ -56,6 +56,7 @@ public class JsonReaderForJsonFile {
                         String mainEventDescription;
                         String domain;
                         List<Occurrences> occurrences;
+                        String issueStatus;
 
                         sortedIssueList = new ArrayList<>();
                         JsonSorter jsonSorter = new JsonSorter();
@@ -80,6 +81,7 @@ public class JsonReaderForJsonFile {
                             mainEventDescription = "none";
                             domain = "none";
                             occurrences = new ArrayList<>();
+                            issueStatus = "none";
 
                             if (node.get("occurrences").isArray()) {
                                 ArrayNode occurrencesArray = (ArrayNode) node.get("occurrences");
@@ -91,7 +93,7 @@ public class JsonReaderForJsonFile {
                                         mainEventLineNumber = arrayNode.get("mainEventLineNumber").getIntValue();
                                         mainEventDescription = arrayNode.get("mainEventDescription").getTextValue();
                                         domain = arrayNode.get("componentName").getTextValue();
-                                        occurrences.add(new Occurrences(checkerName, filePath, function, mainEventLineNumber, mainEventDescription, domain));
+                                        occurrences.add(new Occurrences(checkerName, filePath, function, mainEventLineNumber, mainEventDescription, domain, issueStatus));
                                     }
                                 }
                             }

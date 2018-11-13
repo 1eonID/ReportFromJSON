@@ -12,5 +12,4 @@ public class ResultIssue {
     private String mergeKey;
     private List<Occurrences> occurrences;
     private String issuePriority;
-    private String issueStatus;
 }
